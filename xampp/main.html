@@ -1,0 +1,212 @@
+<html>
+<head>
+<meta name="viewpoint" content="width=device-width, initial-scale=1.0">
+	<link href = "css/bootstrap.min.css" rel ="stylesheet">
+	<link href = "css/styles.css rel" = "stylesheet">
+
+
+ <script type="text/javascript">
+ 	var s=0,m=0;
+ 	var ts=0;
+ 	var tm=0;
+
+ 	function incsec(){
+ 		s=s+1;
+ 		document.getElementById("sec").innerHTML =s;
+ 		ts=s;
+
+ 	}
+ 	function decsec(){
+ 		if(s>0){
+ 		document.getElementById("sec").innerHTML =--s;
+ 		ts=s;
+ 		}
+ 	}
+ 	function incmin(){
+ 		m=m+1;
+ 		document.getElementById("min").innerHTML =m;
+ 		tm=m;
+
+ 	}
+ 	function decmin(){
+ 		if(m>0){
+ 		document.getElementById("min").innerHTML =--m;
+ 		tm=m;
+ 		}
+ 	}
+    function submitForm() { // submits form
+        document.getElementById("ismForm").submit();
+    }
+    function timersec(){
+    	if(ts>0){
+    	 document.getElementById("sec").innerHTML = --ts;    	 
+    	}
+    	else{
+    		ts=60;
+    		if (tm>-1 && ts>-1) {
+    		document.getElementById("min").innerHTML = --tm;
+    		document.getElementById("sec").innerHTML = --ts;
+    		}
+    	}
+    }
+    function timermin(){
+    	if (tm>0) {
+    		document.getElementById("min").innerHTML = --tm;
+    	}
+    }
+    function btnSearchClick()
+    {
+        if (document.getElementById("ismForm")) {
+        	var time;
+        	time=(s*1000)+(m*60000);
+            setTimeout("submitForm()", time);
+            setInterval(timersec, 1000); 
+       }
+    }
+    </script>
+
+</head>
+<body background="opt/lampp/htdocs/xampp/fonts/a.jpg" >
+<title>Automation</title>
+<style type="text/css">
+	form{
+		
+		font-size: 80px;
+		
+	}
+	h1{
+		text-align: center;
+		font-size: 80px;
+		padding: 10px;
+		background-color: #99ccff;
+		opacity: 0.6;
+	}
+	#bdy{
+		font-size: 40px;
+		color: white;
+		text-align: right;
+		padding-right: 5%;
+		margin-left: 25%;
+		margin-right:25%;
+		background-image: url("wood.jpg");
+		opacity: 0.6;
+	}
+
+	h2{
+		font-size: 60px;
+		color: white;
+	}
+	
+	body{
+		background-image: url('img2.jpg');
+		background-size: cover;
+
+		background-repeat: no-repeat;
+	}
+	#m+{
+		margin-left: 140px;
+	}
+	#set{
+		display: inline-block;
+		color: white;
+		text-align: center;
+	}
+
+	#auto{
+		font-size: 80px;
+		margin-left: 75px;
+	}
+	
+	#min{
+		display: inline-block;
+		color: white;
+		margin-left: 25px;
+
+	}
+	#sec{
+		display: inline-block;
+		color: white;
+		margin-left: 25px;
+	}
+	#mp{
+		margin-left: 400px;
+		width: 70px;
+		font-size: 80px;
+	}
+	#mm{
+		margin-left: 400px;
+		width: 70px;
+		font-size: 80px;
+	}
+	#sp{
+		margin-left: 100px;
+		width: 70px;
+		font-size: 80px;
+	}
+	#sm{
+		margin-left: 100px;
+		width: 70px;
+		font-size: 80px;
+	}
+	#tim{
+		background-image: url('wood.jpg');
+		margin-right: 25%;
+		opacity: 0.6;
+		margin-left: 5%;
+	}
+	#r{
+		width: 10%;
+		text-align: right;
+		
+		height: 40px;
+	}
+	#collon{
+		color: white;
+		display: inline-block;
+		margin-left: 45px;
+	}
+	
+	}
+</style>
+<h1>Internet of Things</h1><br><br>
+<form action = "button.php" id="ismForm" method = "POST" background="a.jpg" class="">
+<div id="bdy">
+Red CFL:
+<input type = "radio" id="r" name="status1"  value = "ON">ON          
+<input type = "radio" id="r" name="status1"  value = "OFF" checked="checked">  OFF<br><br>
+White CFL:
+<input type = "radio" id="r" name="status2"  value = "ON">ON          
+<input type = "radio" id="r" name="status2"  value = "OFF" checked="checked">  OFF<br><br>
+Green CFL:
+<input type = "radio" id="r" name="status3"  value = "ON">ON          
+<input type = "radio" id="r" name="status3"  value = "OFF" checked="checked">  OFF<br><br>
+Blue CFL:
+<input type = "radio" name="status4"  id="r" value = "ON">ON          
+<input type = "radio" name="status4"  id="r" value = "OFF" checked="checked">  OFF<br><br>
+Music:
+<input type = "radio" name="status5" id="r" value = "ON">ON          
+<input type = "radio" name="status5" id="r" value = "OFF" checked="checked">  OFF<br><br>
+
+</div><br>
+<div id='tim'>
+<input type="button" value="+" onclick="incmin();" id='mp'>
+<input type="button" value="+" onclick="incsec();" id='sp'><br>
+<div id="set">Set Timer <br></div>
+<div id="min">0</div>
+<div id='collon'>:</div> 
+<div id="sec">0</div><br>
+<input type="button" value="-" onclick="decmin();" id='mm'>
+<input type="button" value="-" onclick="decsec();" id='sm'>
+</div><br>
+
+<input name="Automate" id='auto' onclick="btnSearchClick();" type="button" value="Automate" > 
+
+
+
+</form>
+
+
+
+</body>
+</html>
+

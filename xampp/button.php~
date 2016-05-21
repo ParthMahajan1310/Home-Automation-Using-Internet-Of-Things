@@ -1,0 +1,152 @@
+
+<html>
+<head>
+  <meta name="viewpoint" content="width=device-width, initial-scale=1.0">
+  <link href = "css/bootstrap.min.css" rel ="stylesheet">
+  <link href = "css/styles.css rel" = "stylesheet">
+</head>
+<body>
+<h1>Internet of Things </h1>
+</body>
+</html>
+<?php
+$c=0;
+$file1 = "buttonStatus1.txt";
+$handle1 = fopen($file1,'w+');
+
+$file2 = "buttonStatus2.txt";
+$handle2 = fopen($file2,'w+');
+
+$file3 = "buttonStatus3.txt";
+$handle3 = fopen($file3,'w+');
+
+$file4 = "buttonStatus4.txt";
+$handle4 = fopen($file4,'w+');
+
+$file5 = "buttonStatus5.txt";
+$handle5 = fopen($file5,'w+');
+
+$file6 = "buttonStatus6.txt";
+$handle6 = fopen($file6,'w+');
+
+$file7 = "buttonStatus7.txt";
+$handle7 = fopen($file7,'w+');
+
+$file8 = "buttonStatus8.txt";
+$handle8 = fopen($file8,'w+');
+
+if ($_POST['sub'])
+{
+ $radio1 = $_POST['status1'];
+ if($radio1=='ON')
+ {
+	$c=$c+100;
+  $onstring = "ON";
+  fwrite($handle1,$onstring);
+  fclose($handle1);
+  print "
+  <html>
+  <body>
+  <title>Automation</title>
+  <h4>The BULB is Turned ON </h4>
+  </body>
+  </html>
+  ";
+ }
+ else if($radio1=="OFF")
+ {
+  $offstring = "OFF";
+  fwrite($handle1, $offstring);
+  fclose($handle1);
+  print "
+  <html>
+  <body>
+  <title>Automation</title>
+  <h4>The BULB is OFF </h4>
+  </body>
+  </html>
+ ";
+ }
+
+$radio2 = $_POST['status2'];
+ if($radio2=='ON')
+ {
+	$c=$c+27;
+  $onstring = "ON";
+  fwrite($handle2,$onstring);
+  fclose($handle2);
+  print "
+  <html>
+  <body>
+  <h4><br>The Red CFL is ON </h4>
+  </body>
+  </html>
+  ";
+ }
+ else if($radio2=="OFF")
+ {
+  $offstring = "OFF";
+  fwrite($handle2, $offstring);
+  fclose($handle2);
+  print "
+  <html>
+  <body>
+  <title>Automation</title>
+  <h4><br>The Red CFL is Turned OFF </h4>
+  </body>
+  </html>
+ ";
+ }
+
+$radio3 =$_POST['status3'];
+ if($radio3=='ON')
+ {
+  $c=$c+30;
+  $onstring = "ON";
+  fwrite($handle3,$onstring);
+  fclose($handle3);
+  print "
+  <html>
+  <body>
+  <h4><br>The Green CFL is Turned ON </h4>
+  </body>
+  </html>
+  ";
+ }
+ else if($radio3=="OFF")
+ {
+  $offstring = "OFF";
+  fwrite($handle3, $offstring);
+  fclose($handle3);
+  print "
+  <html>
+  <body>
+  <title>Automation</title>
+  <h4><br>The Green CFL is OFF </h4>
+  </body>
+  </html>
+ ";
+ }
+
+}
+?>
+<html>
+<head>
+  <meta name="viewpoint" content="width=device-width, initial-scale=1.0">
+  <link href = "css/bootstrap.min.css" rel ="stylesheet">
+  <link href = "css/styles.css rel" = "stylesheet">
+</head>
+<style type="text/css">
+  span{
+     background: #99ccff;
+     margin-left: 10%;
+    margin-right:10%;
+    padding-right: 10px;
+    padding-left: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px; 
+  }
+</style>
+<h3 ><span>Net Power Consumption : <?php echo $c?> W/hr</span></h3>
+</html>
+

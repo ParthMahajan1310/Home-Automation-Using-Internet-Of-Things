@@ -1,0 +1,70 @@
+<html>
+<head>
+<meta name="viewpoint" content="width=device-width, initial-scale=1.0">
+	<link href = "css/bootstrap.min.css" rel ="stylesheet">
+	<link href = "css/styles.css rel" = "stylesheet">
+
+ <script type="text/javascript">
+    function submitForm() { // submits form
+        document.getElementById("ismForm").submit();
+    }
+    function btnSearchClick()
+    {
+        if (document.getElementById("ismForm")) {
+            setTimeout("submitForm()", 5000); // set timout 
+       }
+    }
+    </script>
+
+</head>
+<body background="opt/lampp/htdocs/xampp/fonts/a.jpg" >
+<title>Automation</title>
+<style type="text/css">
+body{
+background-image : url('/home/abc/Desktop/a.jpg');
+}
+	form{
+	margin-left: 25%;
+    margin-right:25%;
+    width: 100%;
+    background-image : url('/home/abc/Desktop/a.jpg');
+}
+</style>
+<h1>Internet of Things</h1><br><br>
+<form action = "button.php" id="ismForm" method = "POST" background="a.jpg" class="">
+<p>
+Bulb:
+<input type = "radio" name="status1"  value = "ON">ON          
+<input type = "radio" name="status1"  value = "OFF" checked="checked">  OFF<br><br>
+Red CFL	    :
+<input type = "radio" name="status2"  value = "ON">ON          
+<input type = "radio" name="status2"  value = "OFF" checked="checked">  OFF<br><br>
+Green CFL   :
+<input type = "radio" name="status3"  value = "ON">ON          
+<input type = "radio" name="status3"  value = "OFF" checked="checked">  OFF<br><br>
+Applience 4 :
+<input type = "radio" name="status4"  value = "ON">ON          
+<input type = "radio" name="status4"  value = "OFF" checked="checked">  OFF<br><br>
+Applience 5 :
+<input type = "radio" name="status5"  value = "ON">ON          
+<input type = "radio" name="status5"  value = "OFF" checked="checked">  OFF<br><br>
+Applience 6 :
+<input type = "radio" name="status6"  value = "ON">ON          
+<input type = "radio" name="status6"  value = "OFF" checked="checked">  OFF<br><br>
+Applience 7 :
+<input type = "radio" name="status7"  value = "ON">ON          
+<input type = "radio" name="status7"  value = "OFF" checked="checked">  OFF<br><br>
+Applience 8 :
+<input type = "radio" name="status8"  value = "ON">ON          
+<input type = "radio" name="status8"  value = "OFF" checked="checked">  OFF<br><br>
+</p>
+
+<input name="sub" onclick="btnSearchClick();" type="button" > 
+
+</form>
+
+
+
+</body>
+</html>
+
